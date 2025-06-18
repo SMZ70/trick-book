@@ -140,11 +140,11 @@ A local minimum is a point where the value is lower than its immediate neighbors
 This chain of operations does the following:
 
 1.  ``pl.col("y")`` selects the ``y`` column.
-1.  ``diff()`` calculates the diff of the ``y`` column to see the change between consecutive values.
-2.  ``sign()`` gets the direction of change (-1 for decrease, 1 for increase, 0 for no change).
-3.  Plateaus (no change) are removed with ``replace(0, None)`` and then filled with the previous direction using ``fill_null(strategy="forward")``.
-4.  A second ``diff()`` on the signs will result in ``2`` where the sign changed from -1 to 1 (a valley, or local minimum).
-5.  ``eq(2).sum()`` counts how many times this occurs for each group.
-6.  ``alias("n_local_min_e")`` renames the output column to ``n_local_min_e``.
+2.  ``diff()`` calculates the diff of the ``y`` column to see the change between consecutive values.
+3.  ``sign()`` gets the direction of change (-1 for decrease, 1 for increase, 0 for no change).
+4.  Plateaus (no change) are removed with ``replace(0, None)`` and then filled with the previous direction using ``fill_null(strategy="forward")``.
+5.  A second ``diff()`` on the signs will result in ``2`` where the sign changed from -1 to 1 (a valley, or local minimum).
+6.  ``eq(2).sum()`` counts how many times this occurs for each group.
+7.  ``alias("n_local_min_e")`` renames the output column to ``n_local_min_e``.
 
 This is a concise and highly efficient way to perform what would be a much more complex operation in other libraries. 
