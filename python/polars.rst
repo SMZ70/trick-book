@@ -112,7 +112,7 @@ A local minimum is a point where the value is lower than its immediate neighbors
            "y": [1, 2, 3, 4, 5, 6],
        }
    )
-   # Example of finding local minima in column "e_l" for each "case_idx"
+   # Example of finding local minima in column "y" for each "case_idx"
    loc_min_df = df.group_by("case_idx", maintain_order=True).agg(
            pl.col("y")
            .diff()
